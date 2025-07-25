@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nexus-admin-react/static/css/main.c1e67609.css",
+    "main.js": "/nexus-admin-react/static/js/main.776c388b.js",
+    "index.html": "/nexus-admin-react/index.html",
+    "main.c1e67609.css.map": "/nexus-admin-react/static/css/main.c1e67609.css.map",
+    "main.776c388b.js.map": "/nexus-admin-react/static/js/main.776c388b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1e67609.css",
+    "static/js/main.776c388b.js"
+  ]
+}
