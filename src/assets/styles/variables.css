@@ -20,7 +20,7 @@
 }
 
 /* TEMA DARK */
-.dark {
+[data-theme='dark'] {
   --primary-bg: #0F172A;
   --secondary-bg: #1E293B;
   --tertiary-bg: #334155;

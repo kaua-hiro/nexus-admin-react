@@ -5,7 +5,7 @@ import Header from './Header';
 
 const Layout = () => {
   return (
-    <div className="app-container dark">
+    <div className="app-container">
       <Sidebar />
       <div className="main-content">
         <Header />

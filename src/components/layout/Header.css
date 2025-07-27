@@ -1,29 +1,29 @@
+/* src/components/layout/Header.css */
 .header {
-  background-color: var(--secondary-bg); /* Garante que o fundo do header também use a variável */
+  background-color: var(--secondary-bg);
   padding: 1rem 2rem;
   box-shadow: var(--shadow-md);
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Alinha tudo à direita */
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   height: 70px;
   box-sizing: border-box;
+  gap: 1.5rem; /* Adiciona um espaço entre os itens (botão de tema, user, etc) */
 }
 
 .header-user {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Aumentei um pouco o espaçamento */
+  gap: 0.75rem;
   font-weight: 500;
-  /* AQUI ESTÁ A MUDANÇA PRINCIPAL: Usa a cor de texto secundária (cinza claro) */
   color: var(--secondary-text); 
   font-size: 0.9rem;
 }
 
-/* Também vamos estilizar o ícone para ficar mais claro */
 .header-user svg {
     font-size: 1.2rem;
-    color: var(--primary-text); /* Usa a cor de texto primária (branco) */
+    color: var(--primary-text);
 }
 
 .btn-logout {
@@ -36,9 +36,9 @@
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
-  margin-left: 1rem;
   transition: all 0.2s ease;
 }
+
 .btn-logout:hover {
   background-color: var(--tertiary-bg);
   color: var(--primary-text);
