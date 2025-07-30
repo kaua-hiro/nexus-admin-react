@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/nexus-admin-react/static/css/main.f8b7b87f.css",
-    "main.js": "/nexus-admin-react/static/js/main.6d39e3e6.js",
+    "main.css": "/nexus-admin-react/static/css/main.b94b6203.css",
+    "main.js": "/nexus-admin-react/static/js/main.64ed6505.js",
     "index.html": "/nexus-admin-react/index.html",
-    "main.f8b7b87f.css.map": "/nexus-admin-react/static/css/main.f8b7b87f.css.map",
-    "main.6d39e3e6.js.map": "/nexus-admin-react/static/js/main.6d39e3e6.js.map"
+    "main.b94b6203.css.map": "/nexus-admin-react/static/css/main.b94b6203.css.map",
+    "main.64ed6505.js.map": "/nexus-admin-react/static/js/main.64ed6505.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8b7b87f.css",
-    "static/js/main.6d39e3e6.js"
+    "static/css/main.b94b6203.css",
+    "static/js/main.64ed6505.js"
   ]
 }
