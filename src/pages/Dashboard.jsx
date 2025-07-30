@@ -6,20 +6,13 @@ import MemberGrowthChart from '../components/dashboard/MemberGrowthChart';
 import '../assets/styles/Dashboard.css';
 
 const Dashboard = () => {
-  // Estado para controlar o período selecionado (7 dias, 30 dias, 1 ano)
   const [period, setPeriod] = useState('7d');
-  
-  // Estado para guardar os dados do dashboard (stats e gráfico)
   const [dashboardData, setDashboardData] = useState({ stats: {}, chartData: [] });
-
-  // useEffect: Roda sempre que a variável 'period' mudar.
-  // Ele busca os novos dados e atualiza o estado.
   useEffect(() => {
     const data = generateDashboardData(period);
     setDashboardData(data);
-  }, [period]); // A mágica acontece aqui: o array de dependência
+  }, [period]);
 
-  // Extrai os dados para facilitar o uso
   const { stats, chartData } = dashboardData;
 
   return (

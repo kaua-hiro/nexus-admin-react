@@ -23,7 +23,7 @@ const MemberGrowthChart = ({ data }) => {
         <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)" />
         <Tooltip contentStyle={{ backgroundColor: 'var(--secondary-bg)', border: '1px solid var(--border-color)', color: 'var(--primary-text)' }} />
         <Legend />
-        {/* AQUI ESTÁ A CORREÇÃO: Usando as novas chaves de dados */}
+        {}
         <Area type="monotone" dataKey="Novos Usuários" stroke="var(--primary-accent)" fillOpacity={1} fill="url(#colorMembros)" />
         <Area type="monotone" dataKey="Tarefas Concluídas" stroke="var(--secondary-accent)" fillOpacity={1} fill="url(#colorVisitantes)" />
       </AreaChart>

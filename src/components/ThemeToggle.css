@@ -38,7 +38,6 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Movimento da bolinha no modo dark */
 .theme-toggle-button.dark .toggle-thumb {
   transform: translateX(35px);
 }

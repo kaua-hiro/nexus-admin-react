@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
-// Contexto de Autenticação
 import { AuthProvider } from './context/AuthContext';
 
-// Componentes
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Layout from './components/layout/Layout';
 
@@ -20,14 +18,13 @@ import './assets/styles/App.css';
 
 function App() {
   return (
-    // A MUDANÇA ESTÁ AQUI: O <Router> agora envolve o <AuthProvider>
     <Router>
       <AuthProvider>
         <Routes>
-          {/* Rota pública para o Login */}
+          {}
           <Route path="/login" element={<Login />} />
 
-          {/* Rota "pai" que é protegida e renderiza o Layout principal */}
+          {}
           <Route
             path="/"
             element={
@@ -36,13 +33,13 @@ function App() {
               </ProtectedRoute>
             }
           >
-            {/* Rotas "filhas" que aparecem dentro do Outlet do Layout */}
+            {}
             <Route index element={<Dashboard />} />
             <Route path="membros" element={<Membros />} />
             <Route path="configuracoes" element={<Configuracoes />} />
           </Route>
 
-          {/* Rota para qualquer outro caminho não encontrado, redireciona para a home */}
+          {}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>

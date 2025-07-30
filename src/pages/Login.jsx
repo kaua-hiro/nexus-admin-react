@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom'; // 1. Importe o useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../assets/styles/Login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
-  const navigate = useNavigate(); // 2. Inicialize o hook
+  const navigate = useNavigate();
 
-  // A função handleSubmit agora também é 'async'
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (username && password) {
-      // Usamos 'await' para esperar a função login terminar.
       const loginSuccess = await login({ username, password });
 
-      // A navegação só acontece SE o login retornar sucesso.
       if (loginSuccess) {
         navigate('/');
       } else {
-        // Opcional: Mostrar um erro se o login falhar
         alert("Falha no login, verifique o console.");
       }
     }

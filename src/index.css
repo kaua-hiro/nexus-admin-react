@@ -1,5 +1,4 @@
-/* Define as variáveis de cor para toda a aplicação */
-/* TEMA CLARO (Padrão) */
+/* TEMA CLARO */
 :root {
   --primary-bg: #f5f7fa;
   --secondary-bg: #ffffff;
@@ -22,7 +21,6 @@
 }
 
 /* TEMA ESCURO */
-/* Usamos [data-theme='dark'] para funcionar com a lógica do nosso botão */
 [data-theme='dark'] {
   --primary-bg: #0F172A;
   --secondary-bg: #1E293B;
@@ -39,7 +37,6 @@
   --danger-text: #ef5350;
 }
 
-/* Estilos globais */
 body {
   margin: 0;
   font-family: var(--font-family);
@@ -49,7 +46,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Garante que a transição suave seja aplicada em todos os elementos */
 * {
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }

@@ -63,3 +63,50 @@ th {
 .actions .icon-btn-danger:hover {
   color: var(--danger-text);
 }
+
+/* Estilizando o cabeçalho da página e o campo de busca */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+  gap: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  color: var(--secondary-text);
+  z-index: 1;
+}
+
+.search-input {
+  width: 250px;
+  padding: 10px 15px 10px 40px; /* Espaço à esquerda para o ícone */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--tertiary-bg);
+  color: var(--primary-text);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent);
+  background-color: var(--secondary-bg);
+}

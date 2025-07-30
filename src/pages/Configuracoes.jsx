@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileForm from '../components/configuracoes/ProfileForm';
 import PasswordForm from '../components/configuracoes/PasswordForm';
 import SocialAccounts from '../components/configuracoes/SocialAccounts';
-import '../assets/styles/Configuracoes.css'; // Vamos criar este CSS
+import '../assets/styles/Configuracoes.css';
 
 const Configuracoes = () => {
   return (
@@ -10,7 +10,7 @@ const Configuracoes = () => {
       <h1 className="page-title">Configurações da Conta</h1>
 
       <div className="settings-grid">
-        {/* Componentes serão inseridos aqui */}
+        {}
         <SocialAccounts />
         <ProfileForm />
         <PasswordForm />
