@@ -1,0 +1,8 @@
+{
+  "members": [
+    { "id": 1, "name": "Ana Silva", "email": "ana.silva@example.com", "status": "Ativo", "joinDate": "2024-01-15", "role": "Desenvolvedora Front-end" },
+    { "id": 2, "name": "Bruno Costa", "email": "bruno.costa@example.com", "status": "Ativo", "joinDate": "2023-11-20", "role": "Designer UX/UI" },
+    { "id": 3, "name": "Carlos Lima", "email": "carlos.lima@example.com", "status": "Inativo", "joinDate": "2022-05-10", "role": "Gerente de Projetos" },
+    { "id": 4, "name": "Daniela Souza", "email": "daniela.souza@example.com", "status": "Ativo", "joinDate": "2024-03-01", "role": "Engenheira de Dados" }
+  ]
+}
