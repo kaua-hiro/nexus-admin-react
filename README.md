@@ -89,7 +89,7 @@ src/
 ## 🎯 Próximos Passos
 
 - [x] Filtro de Busca em Tempo Real na tabela de membros
-- [ ] Integração com API real
+- [x] Integração com API real
 - [ ] Sistema de autenticação
 - [ ] Testes unitários
 - [ ] Deploy automático
