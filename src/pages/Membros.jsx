@@ -41,18 +41,24 @@ const Membros = () => {
     fetchMembers();
   }, []);
 
-  // --- AQUI ESTÃO AS MUDANÇAS PRINCIPAIS ---
-
-  const handleSave = async (memberData) => {
-    // 1. ADICIONAR NOVO MEMBRO (POST)
+const handleSave = async (memberData) => {
+    // Adicionar novo membro (POST)
     if (!memberData.id) {
       try {
+        // AQUI ESTÁ A CORREÇÃO: Adicionamos a data de inscrição ao novo utilizador
+        const newMemberPayload = {
+          ...memberData,
+          id: Date.now(), // Adiciona um ID temporário
+          joinDate: new Date().toISOString().split('T')[0] // Formato YYYY-MM-DD
+        };
+
         const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...memberData, id: Date.now() }), // Adiciona um ID temporário
+          body: JSON.stringify(newMemberPayload),
         });
-        if (!response.ok) throw new Error("Falha ao adicionar membro.");
+        if (!response.ok) throw new Error("Falha ao adicionar utilizador.");
+        
         const newMember = await response.json();
         
         // Atualiza o estado local para a UI reagir instantaneamente
@@ -63,7 +69,7 @@ const Membros = () => {
         toast.error("Não foi possível adicionar o utilizador.");
       }
     
-    // 2. ATUALIZAR MEMBRO EXISTENTE (PUT)
+    // Atualizar membro existente (PUT)
     } else {
       try {
         const response = await fetch(`${API_URL}/${memberData.id}`, {
@@ -71,10 +77,9 @@ const Membros = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(memberData),
         });
-        if (!response.ok) throw new Error("Falha ao atualizar membro.");
+        if (!response.ok) throw new Error("Falha ao atualizar utilizador.");
         const updatedMember = await response.json();
 
-        // Atualiza o estado local
         setMembers(prevMembers => 
           prevMembers.map(m => (m.id === updatedMember.id ? updatedMember : m))
         );
