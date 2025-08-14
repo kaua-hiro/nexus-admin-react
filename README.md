@@ -90,7 +90,7 @@ src/
 
 - [x] Filtro de Busca em Tempo Real na tabela de membros
 - [x] Integração com API real
-- [ ] Sistema de autenticação
+- [X] Sistema de autenticação
 - [ ] Testes unitários
 - [ ] Deploy automático
 - [ ] Notificações em tempo real
