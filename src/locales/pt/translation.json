@@ -1,0 +1,12 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "Utilizadores",
+    "projects": "Projetos",
+    "calendar": "Calendário",
+    "settings": "Configurações"
+  },
+  "header": {
+    "logout": "Sair"
+  }
+}

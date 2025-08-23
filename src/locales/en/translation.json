@@ -1,0 +1,12 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "projects": "Projects",
+    "calendar": "Calendar",
+    "settings": "Settings"
+  },
+  "header": {
+    "logout": "Logout"
+  }
+}

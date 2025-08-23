@@ -1,0 +1,25 @@
+.language-switcher {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.language-switcher button {
+  background-color: transparent;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--secondary-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.language-switcher button:hover {
+  background-color: var(--tertiary-bg);
+}
+
+.language-switcher button.active {
+  background-color: var(--primary-accent);
+  color: var(--text-on-accent);
+}

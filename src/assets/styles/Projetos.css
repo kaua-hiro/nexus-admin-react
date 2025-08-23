@@ -1,0 +1,47 @@
+.kanban-board {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.kanban-column {
+  background-color: var(--tertiary-bg);
+  border-radius: var(--border-radius);
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  color: var(--primary-text);
+  font-weight: 500;
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.task-list {
+  padding: 1rem;
+  flex-grow: 1;
+  min-height: 100px; /* Garante que a área de drop existe mesmo vazia */
+}
+
+.kanban-task {
+  background-color: var(--secondary-bg);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  font-weight: 500;
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+}
+
+.kanban-task:hover {
+  box-shadow: var(--shadow-md);
+}

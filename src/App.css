@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--nexus-background);
+  color: var(--nexus-text-primary);
+}
+
+.app-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  padding: 2rem;
+  flex-grow: 1;
+}

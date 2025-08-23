@@ -1,0 +1,16 @@
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 100%;
+}
+.error-box {
+    background-color: var(--danger-bg);
+    color: var(--danger-text);
+    border: 1px solid var(--danger-text);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+}

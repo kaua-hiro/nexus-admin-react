@@ -1,0 +1,34 @@
+.calendar-container {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Sobrescreve as cores do FullCalendar para se adaptarem ao nosso tema */
+.fc {
+  color: var(--primary-text);
+}
+.fc .fc-toolbar-title {
+  color: var(--primary-text);
+}
+.fc .fc-button-primary {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  color: var(--text-on-accent);
+}
+.fc .fc-button-primary:hover {
+  background-color: color-mix(in srgb, var(--primary-accent) 90%, black);
+}
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: color-mix(in srgb, var(--secondary-accent) 20%, transparent);
+}
+.fc .fc-day-header {
+    border-color: var(--border-color);
+}
+.fc .fc-col-header-cell-cushion {
+  color: var(--secondary-text);
+}
+.fc td, .fc th {
+    border-color: var(--border-color);
+}

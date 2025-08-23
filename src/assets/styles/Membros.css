@@ -1,0 +1,157 @@
+.membros-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.table-container {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--secondary-text);
+}
+
+th {
+  color: var(--primary-text);
+  font-size: 0.9rem;
+}
+
+/* AQUI ESTÁ A CORREÇÃO DOS STATUS */
+.status {
+  padding: 4px 10px;
+  border-radius: 9999px; /* Pílula */
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.status-ativo {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+.status-inativo {
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+.actions .icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary-text);
+  font-size: 1.2rem;
+  margin: 0 5px;
+  transition: color 0.2s ease;
+}
+.actions .icon-btn:hover {
+  color: var(--primary-accent);
+}
+.actions .icon-btn-danger:hover {
+  color: var(--danger-text);
+}
+
+/* Estilizando o cabeçalho da página e o campo de busca */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+  gap: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  color: var(--secondary-text);
+  z-index: 1;
+}
+
+.search-input {
+  width: 250px;
+  padding: 10px 15px 10px 40px; /* Espaço à esquerda para o ícone */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--tertiary-bg);
+  color: var(--primary-text);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent);
+  background-color: var(--secondary-bg);
+}
+
+/* Estilos para validação de formulário */
+.form-group-validation {
+  margin-bottom: 1.2rem; /* Aumenta o espaço */
+  position: relative; /* Necessário para o posicionamento da mensagem de erro */
+  width: 100%;
+}
+
+.form-group-validation input,
+.form-group-validation select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--tertiary-bg);
+    color: var(--primary-text);
+    box-sizing: border-box; 
+}
+
+.form-group-validation .error-message {
+  color: var(--danger-text);
+  font-size: 0.8rem;
+  padding-top: 4px; /* Adiciona um pequeno espaço acima da mensagem */
+  display: block;
+}
+
+/* Adiciona uma borda vermelha ao input com erro */
+input.invalid {
+  border-color: var(--danger-text);
+}
+
+/* Estilos para ordenação da tabela */
+th {
+  cursor: pointer;
+  user-select: none; /* Impede que o texto seja selecionado ao clicar */
+  position: relative;
+}
+
+th svg {
+  margin-left: 5px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
