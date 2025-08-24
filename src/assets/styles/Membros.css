@@ -155,3 +155,11 @@ th svg {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.form-group-validation label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+}

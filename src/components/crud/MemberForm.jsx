@@ -1,54 +1,57 @@
 import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form'; // 1. Importe o hook principal
+import { useForm } from 'react-hook-form';
 
 const MemberForm = ({ onSave, onCancel, member }) => {
-  // 2. Inicialize o React Hook Form
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset, // Função para reiniciar o formulário
+    reset,
   } = useForm();
 
-  // 3. useEffect para preencher o formulário quando estiver a editar um membro
   useEffect(() => {
     if (member) {
-      reset(member); // Preenche o formulário com os dados do membro
+      reset(member);
     } else {
-      reset({ name: '', email: '', status: 'Ativo' }); // Limpa o formulário
+      reset({ name: '', email: '', status: 'Ativo' });
     }
   }, [member, reset]);
 
-  // 4. A função onSave é chamada pelo handleSubmit apenas se a validação passar
   const onSubmit = (data) => {
-    // Adiciona o ID de volta se estiver a editar
     const finalData = member ? { ...data, id: member.id } : data;
     onSave(finalData);
   };
 
   return (
     <div className="form-container">
-      {/* 5. O handleSubmit do React Hook Form agora envolve a nossa função onSubmit */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <h3>{member ? 'Editar Utilizador' : 'Adicionar Novo Utilizador'}</h3>
-        
-        {/* Campo de Nome com Validação */}
+
         <div className="form-group-validation">
+          {/* 1. Adicionado um label explícito */}
+          <label htmlFor="name-input">Nome completo</label>
           <input
+            id="name-input" // O id corresponde ao htmlFor do label
             type="text"
             placeholder="Nome completo"
-            // 6. O 'register' conecta o input ao formulário e adiciona regras
+            // 2. Adicionado aria-invalid para indicar que o campo tem um erro
+            aria-invalid={errors.name ? "true" : "false"}
+            // 3. Adicionado aria-describedby para conectar ao elemento de erro
+            aria-describedby={errors.name ? "name-error" : undefined}
             {...register('name', { required: 'O nome é obrigatório.' })}
           />
-          {/* 7. Mostra a mensagem de erro se a validação falhar */}
-          {errors.name && <span className="error-message">{errors.name.message}</span>}
+          {/* 4. A mensagem de erro agora tem um id e um role="alert" */}
+          {errors.name && <span id="name-error" className="error-message" role="alert">{errors.name.message}</span>}
         </div>
 
-        {/* Campo de Email com Validação */}
         <div className="form-group-validation">
+          <label htmlFor="email-input">Email</label>
           <input
+            id="email-input"
             type="email"
             placeholder="Email"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
             {...register('email', {
               required: 'O email é obrigatório.',
               pattern: {
@@ -57,12 +60,12 @@ const MemberForm = ({ onSave, onCancel, member }) => {
               },
             })}
           />
-          {errors.email && <span className="error-message">{errors.email.message}</span>}
+          {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
         </div>
 
-        {/* Campo de Status (não precisa de validação complexa) */}
         <div className="form-group-validation">
-          <select {...register('status')}>
+          <label htmlFor="status-select">Status</label>
+          <select id="status-select" {...register('status')}>
             <option value="Ativo">Ativo</option>
             <option value="Inativo">Inativo</option>
           </select>
