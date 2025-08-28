@@ -11,6 +11,7 @@ import Projetos from './pages/Projetos';
 import Calendario from './pages/Calendario';
 import './assets/styles/variables.css';
 import './assets/styles/App.css';
+import Relatorios from './pages/Relatorios';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="membros" element={<Membros />} />
             <Route path="projetos" element={<Projetos />} />
             <Route path="calendario" element={<Calendario />} />
+            <Route path="relatorios" element={<Relatorios />} />
             <Route path="configuracoes" element={<Configuracoes />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />

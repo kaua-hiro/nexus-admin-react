@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiGrid, FiUsers, FiSettings, FiClipboard, FiCalendar } from 'react-icons/fi';
-import { useTranslation } from 'react-i18next'; // 1. Importe o hook
-import './Sidebar.css';
+import { useTranslation } from 'react-i18next'; 
+import { FiGrid, FiUsers, FiSettings, FiClipboard, FiCalendar, FiFileText } from 'react-icons/fi';
 
 const Sidebar = () => {
-  const { t } = useTranslation(); // 2. Inicialize o hook
+  const { t } = useTranslation(); 
 
   return (
     <aside className="sidebar">
@@ -13,7 +13,6 @@ const Sidebar = () => {
         <h1 className="sidebar-logo">Nexus</h1>
       </div>
       <nav className="sidebar-nav">
-        {/* 3. Substitua o texto fixo pelas chaves de tradução */}
         <NavLink to="/" className="sidebar-link">
           <FiGrid />
           <span>{t('sidebar.dashboard')}</span>
@@ -29,6 +28,10 @@ const Sidebar = () => {
         <NavLink to="/calendario" className="sidebar-link">
           <FiCalendar />
           <span>{t('sidebar.calendar')}</span>
+        </NavLink>
+        <NavLink to="/relatorios" className="sidebar-link">
+        <FiFileText />
+          <span>Relatórios</span>
         </NavLink>
         <NavLink to="/configuracoes" className="sidebar-link">
           <FiSettings />
