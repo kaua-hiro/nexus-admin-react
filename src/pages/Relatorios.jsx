@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// 1. ADICIONE A IMPORTAÇÃO DOS ÍCONES QUE VAMOS USAR
 import { FiPrinter, FiDownload, FiUsers, FiCalendar, FiHeart, FiDollarSign } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 import jsPDF from 'jspdf';

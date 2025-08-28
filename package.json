@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/kaua-hiro/nexus-admin-react.git"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
