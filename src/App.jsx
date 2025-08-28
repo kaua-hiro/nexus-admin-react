@@ -11,6 +11,7 @@ import Projetos from './pages/Projetos';
 import Calendario from './pages/Calendario';
 import './assets/styles/variables.css';
 import './assets/styles/App.css';
+import './assets/styles/print.css';
 import Relatorios from './pages/Relatorios';
 
 function App() {

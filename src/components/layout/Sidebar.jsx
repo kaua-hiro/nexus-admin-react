@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiGrid, FiUsers, FiSettings, FiClipboard, FiCalendar } from 'react-icons/fi';
-import { useTranslation } from 'react-i18next'; 
 import { FiGrid, FiUsers, FiSettings, FiClipboard, FiCalendar, FiFileText } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
+import './Sidebar.css';
 
 const Sidebar = () => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   return (
-    <aside className="sidebar">
+    <nav className="sidebar" aria-label="Navegação Principal">
       <div className="sidebar-header">
         <h1 className="sidebar-logo">Nexus</h1>
       </div>
-      <nav className="sidebar-nav">
+      <div className="sidebar-nav">
         <NavLink to="/" className="sidebar-link">
           <FiGrid />
           <span>{t('sidebar.dashboard')}</span>
@@ -30,15 +30,15 @@ const Sidebar = () => {
           <span>{t('sidebar.calendar')}</span>
         </NavLink>
         <NavLink to="/relatorios" className="sidebar-link">
-        <FiFileText />
+          <FiFileText />
           <span>Relatórios</span>
         </NavLink>
         <NavLink to="/configuracoes" className="sidebar-link">
           <FiSettings />
           <span>{t('sidebar.settings')}</span>
         </NavLink>
-      </nav>
-    </aside>
+      </div>
+    </nav>
   );
 };
 

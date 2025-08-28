@@ -1,0 +1,75 @@
+.report-page .page-title {
+    margin-bottom: 0;
+}
+
+.report-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.report-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Estilos para o conteúdo do relatório */
+.report-content {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.report-header {
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.report-header h2 {
+    margin: 0;
+}
+
+.report-header p {
+    margin: 5px 0 0;
+    color: var(--secondary-text);
+}
+
+.report-section h3 {
+    color: var(--primary-text);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.report-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Para impressão, os cards não precisam de tantos detalhes */
+@media print {
+  .report-content .stats-card {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  .no-print {
+    display: none;
+  }
+}
+
+.report-footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+}

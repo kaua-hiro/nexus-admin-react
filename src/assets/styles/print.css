@@ -1,0 +1,26 @@
+/* src/assets/styles/print.css */
+
+@media print {
+  /* Esconde tudo, exceto a área de conteúdo do relatório */
+  body * {
+    visibility: hidden;
+  }
+
+  #report-content, #report-content * {
+    visibility: visible;
+  }
+
+  /* Garante que o relatório ocupe toda a área de impressão */
+  #report-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Remove fundos escuros para poupar tinta */
+  .report-content {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+}
