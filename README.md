@@ -99,11 +99,11 @@ O **Nexus Dashboard** é uma solução completa de administração empresarial q
 
 | Dashboard Principal | Gestão de Usuários |
 |:---:|:---:|
-| ![Dashboard](https://github.com/user-attachments/assets/0859307b-05e9-4eac-ab58-8af7c73cfbb7) | ![Users](https://github.com/user-attachments/assets/e4c1972f-d790-4651-ada5-4ead7b8767ed) |
+| ![Dashboard](link-para-screenshot-dashboard) | ![Users](link-para-screenshot-users) |
 
 | Quadro Kanban | Calendário |
 |:---:|:---:|
-| ![Kanban](https://github.com/user-attachments/assets/31b05847-645c-4b71-8e53-f25a6f137226) | ![Calendar](https://github.com/user-attachments/assets/c11c723c-98a8-4733-abd6-e2969237e4ea) |
+| ![Kanban](link-para-screenshot-kanban) | ![Calendar](link-para-screenshot-calendar) |
 
 </div>
 
@@ -266,6 +266,18 @@ Encontrou um bug? [Abra uma issue](https://github.com/kaua-hiro/nexus-admin-reac
 - Screenshots (se aplicável)
 - Informações do ambiente
 
+---
+
+## 📊 Métricas do Projeto
+
+<div align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/kaua-hiro/nexus-admin-react?style=social)
+![GitHub forks](https://img.shields.io/github/forks/kaua-hiro/nexus-admin-react?style=social)
+![GitHub issues](https://img.shields.io/github/issues/kaua-hiro/nexus-admin-react)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/kaua-hiro/nexus-admin-react)
+
+</div>
 
 ---
 
