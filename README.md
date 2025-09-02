@@ -16,7 +16,7 @@
 
 ---
 
-## 📋 Índice
+## 📋 Índice.
 
 - [Sobre o Projeto](#-sobre-o-projeto)
 - [Principais Funcionalidades](#-principais-funcionalidades)
