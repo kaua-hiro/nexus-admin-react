@@ -145,7 +145,7 @@ Certifique-se de ter instalado:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/kaua-hiro/nexus-admin-react.git
+git clone https://github.com/kaua-hiro/nexus-admin-react
 
 # 2. Entre no diretório
 cd nexus-admin-react
