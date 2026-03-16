@@ -1,42 +1,55 @@
-// src/components/layout/Header.jsx
-import React from 'react';
-import { FiUser, FiLogOut } from 'react-icons/fi';
-import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import ThemeToggle from '../ThemeToggle.jsx';
-import LanguageSwitcher from '../common/LanguageSwitcher.jsx';
+import React, { useState, useEffect } from 'react';
+import { FiMenu, FiBell, FiUser, FiSun, FiMoon } from 'react-icons/fi';
 import './Header.css';
 
-const Header = () => {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+const Header = ({ onMenuClick }) => {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('nexus-theme') || 'dark';
+  });
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('nexus-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
     <header className="header">
-      {/* Lado esquerdo do Header - pode ser usado para um campo de busca no futuro */}
       <div className="header-left">
-        {/* Intencionalmente vazio por enquanto para empurrar o resto para a direita */}
+        <button className="menu-toggle-btn" onClick={onMenuClick}>
+          <FiMenu size={24} />
+        </button>
       </div>
 
-      {/* Lado direito do Header com todos os controles */}
       <div className="header-right">
-        <LanguageSwitcher />
-        <ThemeToggle />
-        <div className="user-info">
-          <FiUser size={18} />
-          <span>{user?.name || 'Admin'}</span>
-        </div>
-        <button onClick={handleLogout} className="logout-button">
-          <FiLogOut size={16} />
-          <span>{t('header.logout')}</span>
+        {/* Botão de Tema Moderno */}
+        <button 
+          className="theme-toggle-modern" 
+          onClick={toggleTheme} 
+          title={theme === 'light' ? 'Mudar para Tema Escuro' : 'Mudar para Tema Claro'}
+        >
+          <div className={`theme-icon-wrapper ${theme}`}>
+            {theme === 'light' ? <FiMoon size={16} /> : <FiSun size={16} />}
+          </div>
         </button>
+        
+        <button className="icon-btn notification-btn" title="Notificações">
+          <FiBell size={20} />
+          <span className="notification-badge">3</span>
+        </button>
+        
+        <div className="user-profile">
+          <div className="avatar">
+            <FiUser size={20} />
+          </div>
+          <div className="user-info">
+            <span className="user-name">Admin</span>
+            <span className="user-role">Superuser</span>
+          </div>
+        </div>
       </div>
     </header>
   );

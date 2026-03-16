@@ -1,44 +1,37 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiGrid, FiUsers, FiSettings, FiClipboard, FiCalendar, FiFileText } from 'react-icons/fi';
-import { useTranslation } from 'react-i18next';
+import { FiHome, FiUsers, FiSettings, FiLogOut, FiX } from 'react-icons/fi';
+import { useAuth } from '../../context/AuthContext';
 import './Sidebar.css';
 
-const Sidebar = () => {
-  const { t } = useTranslation();
+const Sidebar = ({ isOpen, onClose }) => {
+  const { logout } = useAuth();
 
   return (
-    <nav className="sidebar" aria-label="Navegação Principal">
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <h1 className="sidebar-logo">Nexus</h1>
+        <button className="close-sidebar-btn" onClick={onClose}>
+          <FiX size={24} />
+        </button>
       </div>
-      <div className="sidebar-nav">
-        <NavLink to="/" className="sidebar-link">
-          <FiGrid />
-          <span>{t('sidebar.dashboard')}</span>
+      <nav className="sidebar-nav">
+        <NavLink to="/" className="nav-item" end onClick={onClose}>
+          <FiHome /> Dashboard
         </NavLink>
-        <NavLink to="/membros" className="sidebar-link">
-          <FiUsers />
-          <span>{t('sidebar.users')}</span>
+        <NavLink to="/membros" className="nav-item" onClick={onClose}>
+          <FiUsers /> Membros
         </NavLink>
-        <NavLink to="/projetos" className="sidebar-link">
-          <FiClipboard />
-          <span>{t('sidebar.projects')}</span>
+        <NavLink to="/configuracoes" className="nav-item" onClick={onClose}>
+          <FiSettings /> Configurações
         </NavLink>
-        <NavLink to="/calendario" className="sidebar-link">
-          <FiCalendar />
-          <span>{t('sidebar.calendar')}</span>
-        </NavLink>
-        <NavLink to="/relatorios" className="sidebar-link">
-          <FiFileText />
-          <span>Relatórios</span>
-        </NavLink>
-        <NavLink to="/configuracoes" className="sidebar-link">
-          <FiSettings />
-          <span>{t('sidebar.settings')}</span>
-        </NavLink>
+      </nav>
+      <div className="sidebar-footer">
+        <button className="nav-item logout-btn" onClick={logout}>
+          <FiLogOut /> Sair
+        </button>
       </div>
-    </nav>
+    </aside>
   );
 };
 

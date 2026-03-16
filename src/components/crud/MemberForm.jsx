@@ -1,79 +1,106 @@
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState, useEffect } from 'react';
+import { FiX, FiUser, FiMail, FiBriefcase, FiSave } from 'react-icons/fi'; // Adicionamos ícones
+import './MemberForm.css'; // <--- IMPORTAÇÃO CRUCIAL DO CSS NOVO
 
 const MemberForm = ({ onSave, onCancel, member }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    role: '',
+    status: 'Ativo',
+  });
 
   useEffect(() => {
     if (member) {
-      reset(member);
-    } else {
-      reset({ name: '', email: '', status: 'Ativo' });
+      setFormData(member);
     }
-  }, [member, reset]);
+  }, [member]);
 
-  const onSubmit = (data) => {
-    const finalData = member ? { ...data, id: member.id } : data;
-    onSave(finalData);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(formData);
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h3>{member ? 'Editar Utilizador' : 'Adicionar Novo Utilizador'}</h3>
-
-        <div className="form-group-validation">
-          {/* 1. Adicionado um label explícito */}
-          <label htmlFor="name-input">Nome completo</label>
-          <input
-            id="name-input" // O id corresponde ao htmlFor do label
-            type="text"
-            placeholder="Nome completo"
-            // 2. Adicionado aria-invalid para indicar que o campo tem um erro
-            aria-invalid={errors.name ? "true" : "false"}
-            // 3. Adicionado aria-describedby para conectar ao elemento de erro
-            aria-describedby={errors.name ? "name-error" : undefined}
-            {...register('name', { required: 'O nome é obrigatório.' })}
-          />
-          {/* 4. A mensagem de erro agora tem um id e um role="alert" */}
-          {errors.name && <span id="name-error" className="error-message" role="alert">{errors.name.message}</span>}
+    // Nova estrutura de overlay para o modal
+    <div className="form-overlay" onClick={onCancel}>
+      {/* Impede que o clique dentro do formulário feche o modal */}
+      <form className="member-form-card" onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
+        
+        <div className="form-header">
+          <h2>{member ? 'Editar Membro' : 'Adicionar Membro'}</h2>
+          <button type="button" className="close-form-btn" onClick={onCancel}>
+            <FiX size={20} />
+          </button>
         </div>
 
-        <div className="form-group-validation">
-          <label htmlFor="email-input">Email</label>
-          <input
-            id="email-input"
-            type="email"
-            placeholder="Email"
-            aria-invalid={errors.email ? "true" : "false"}
-            aria-describedby={errors.email ? "email-error" : undefined}
-            {...register('email', {
-              required: 'O email é obrigatório.',
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: 'Formato de email inválido.',
-              },
-            })}
-          />
-          {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
+        <div className="form-body">
+          <div className="form-group">
+            <label htmlFor="name">Nome Completo</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Ex: João Silva"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="email">E-mail Corporativo</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Ex: joao.silva@nexuscorp.com"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="role">Cargo / Função</label>
+            <input
+              type="text"
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              placeholder="Ex: Desenvolvedor Senior"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="status">Status da Conta</label>
+            <select
+              id="status"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+            >
+              <option value="Ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+            </select>
+          </div>
         </div>
 
-        <div className="form-group-validation">
-          <label htmlFor="status-select">Status</label>
-          <select id="status-select" {...register('status')}>
-            <option value="Ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
-          </select>
-        </div>
-
-        <div className="form-actions">
-          <button type="submit" className="btn btn-primary">Salvar</button>
-          <button type="button" className="btn btn-secondary" onClick={onCancel}>Cancelar</button>
+        <div className="form-footer">
+          <button type="button" className="btn btn-secondary" onClick={onCancel}>
+            Cancelar
+          </button>
+          <button type="submit" className="btn btn-primary">
+            <FiSave />
+            {member ? 'Salvar Alterações' : 'Confirmar Registo'}
+          </button>
         </div>
       </form>
     </div>

@@ -1,0 +1,205 @@
+/* --- OVERLAY DO MODAL (Fundo Embaçado Futurista) --- */
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px); /* Efeito de vidro fosco no fundo */
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease;
+}
+
+/* --- CONTAINER DO FORMULÁRIO (Card Premium com Elevação) --- */
+.member-form-card {
+  background-color: var(--secondary-bg);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: slideUpForm 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+/* Linha de brilho tecnológico no topo do card */
+.member-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+}
+
+/* --- CABEÇALHO DO FORMULÁRIO --- */
+.form-header {
+  padding: 2rem 2rem 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.close-form-btn {
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-form-btn:hover {
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: var(--danger-text);
+  transform: rotate(90deg);
+}
+
+/* --- CORPO DO FORMULÁRIO --- */
+.form-body {
+  padding: 1rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- GRUPOS DE INPUT (Label + Campo) --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  letter-spacing: 0.02em;
+}
+
+/* --- INPUTS E SELECTS MODERNIZADOS (A "Mágica" Tecnológica) --- */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Profundidade interna sutil */
+}
+
+/* Efeito de Foco Neon/Glow Robusto */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  background-color: var(--secondary-bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-accent) 20%, transparent),
+              inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transform: translateY(-1px);
+}
+
+/* Estilização específica para o elemento SELECT */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 491.996 491.996' style='enable-background:new 0 0 491.996 491.996;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M484.132,124.986l-16.116-16.228c-5.064-5.116-11.37-7.698-18.914-7.774c-7.291-0.151-13.633,2.327-19.032,7.429 L245.992,302.264L61.939,108.413c-5.399-5.102-11.741-7.58-19.032-7.429c-7.544,0.076-13.85,2.658-18.914,7.774l-16.116,16.228 c-5.064,5.116-7.596,11.397-7.596,18.839s2.532,13.723,7.596,18.839l219.112,219.112c5.064,5.064,11.37,7.596,18.914,7.596 c7.544,0,13.85-2.532,18.914-7.596L484.132,162.664c5.064-5.116,7.596-11.397,7.596-18.839S489.196,130.102,484.132,124.986z' fill='%2364748B'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 14px;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+
+/* --- RODAPÉ DO FORMULÁRIO (Botões) --- */
+.form-footer {
+  padding: 1.5rem 2rem 2rem 2rem;
+  background-color: var(--tertiary-bg);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- ESTILO DE BOTÕES MODERNOS --- */
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Botão Primário Tecnológico com Degradê e Brilho */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-accent), #2563EB);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Botão Secundário Sutil e Elegante */
+.btn-secondary {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--tertiary-bg);
+  border-color: var(--secondary-text);
+}
+
+/* --- ANIMAÇÕES SUTIS --- */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpForm {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

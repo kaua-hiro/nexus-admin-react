@@ -4,30 +4,52 @@
   justify-content: center;
   min-height: 100vh;
   background-color: var(--primary-bg);
+  background-image: radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.08), transparent 25%),
+                    radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08), transparent 25%);
 }
 
 .login-box {
-  background-color: var(--secondary-bg);
+  background: rgba(var(--secondary-bg), 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 3rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   text-align: center;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito Glow no topo do card */
+.login-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
 }
 
 .login-logo {
-  color: var(--secondary-accent);
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .login-box h2 {
-  color: var(--primary-text);
+  color: var(--secondary-text);
   margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 500;
+  font-size: 1rem;
 }
 
 .input-group {
@@ -38,33 +60,44 @@
 .input-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--secondary-text);
+  font-weight: 600;
+  color: var(--primary-text);
+  font-size: 0.9rem;
 }
 
 .input-group input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: 10px;
   background-color: var(--tertiary-bg);
   color: var(--primary-text);
-  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  background-color: var(--secondary-bg);
 }
 
 .login-button {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.9rem;
   border: none;
-  background-color: var(--primary-accent);
-  color: var(--text-on-accent);
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 6px;
+  background: linear-gradient(135deg, var(--primary-accent), #2563EB);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 10px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
 }
 
 .login-button:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
 }

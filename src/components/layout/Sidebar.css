@@ -1,56 +1,135 @@
 .sidebar {
   width: 260px;
-  flex-shrink: 0;
   background-color: var(--secondary-bg);
-  color: var(--primary-text);
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
 }
 
 .sidebar-header {
-  height: 70px; 
+  height: 80px;
+  padding: 0 1.5rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
   border-bottom: 1px solid var(--border-color);
-  box-sizing: border-box;
 }
 
 .sidebar-logo {
+  font-size: 1.8rem;
+  color: var(--primary-text);
+  font-weight: 800;
+  letter-spacing: -0.5px;
   margin: 0;
-  font-size: 1.5rem;
-  color: var(--secondary-accent);
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sidebar-nav {
-  padding-top: 1.5rem;
+  flex: 1;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  gap: 0.4rem;
+  overflow-y: auto;
 }
 
-.sidebar-link {
+.nav-item {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.2rem;
   color: var(--secondary-text);
   text-decoration: none;
+  border-radius: var(--border-radius-sm);
   font-weight: 500;
-  border-left: 3px solid transparent;
-  transition: background-color 0.2s, color 0.2s;
+  transition: var(--transition-smooth);
+  position: relative;
 }
 
-.sidebar-link:hover {
-  background-color: rgba(148, 163, 184, 0.1);
-  color: var(--primary-text);
+/* Indicador lateral do menu ativo */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0;
+  width: 4px;
+  background-color: var(--primary-accent);
+  border-radius: 0 4px 4px 0;
+  transition: var(--transition-smooth);
 }
 
-.sidebar-link.active {
+.nav-item:hover {
   background-color: var(--tertiary-bg);
-  border-left: 3px solid var(--primary-accent);
   color: var(--primary-text);
-  font-weight: bold;
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background-color: color-mix(in srgb, var(--primary-accent) 10%, transparent);
+  color: var(--primary-accent);
+}
+
+.nav-item.active::before {
+  height: 60%;
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.logout-btn {
+  width: 100%;
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- BOTÃO DE FECHAR (Apenas Mobile) --- */
+.close-sidebar-btn {
+  display: none; /* Esconde no desktop */
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px;
+  transition: var(--transition-smooth, all 0.3s ease);
+}
+
+.close-sidebar-btn:hover {
+  color: var(--danger-text);
+  border-color: var(--danger-text);
+  background: var(--danger-bg);
+}
+
+/* Mostra o botão apenas em telas menores (celular/tablet) */
+@media (max-width: 768px) {
+  .close-sidebar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

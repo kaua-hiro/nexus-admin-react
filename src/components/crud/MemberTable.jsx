@@ -1,52 +1,33 @@
 import React from 'react';
-import { FiEdit, FiTrash2, FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const MemberTable = ({ members, onEdit, onDelete, onSort, sortConfig }) => {
-  // Função para renderizar o ícone de ordenação
-  const renderSortIcon = (key) => {
-    if (sortConfig.key !== key) {
-      return null;
-    }
-    return sortConfig.direction === 'ascending' ? <FiChevronUp /> : <FiChevronDown />;
-  };
-
+const MemberTable = ({ members, onEdit, onDelete }) => {
   return (
-    <div className="table-container">
-      <table>
+    <div className="table-responsive">
+      <table className="members-table">
         <thead>
           <tr>
-            {/* Cabeçalhos agora são clicáveis */}
-            <th onClick={() => onSort('name')}>
-              Nome {renderSortIcon('name')}
-            </th>
-            <th onClick={() => onSort('email')}>
-              Email {renderSortIcon('email')}
-            </th>
-            <th onClick={() => onSort('joinDate')}>
-              Data de Inscrição {renderSortIcon('joinDate')}
-            </th>
-            <th onClick={() => onSort('status')}>
-              Status {renderSortIcon('status')}
-            </th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {members.map(member => (
             <tr key={member.id}>
-              <td>{member.name}</td>
-              <td>{member.email}</td>
-              <td>{new Date(member.joinDate).toLocaleDateString()}</td>
-              <td>
-                <span className={`status status-${member.status.toLowerCase()}`}>
+              <td data-label="Nome">{member.name}</td>
+              <td data-label="Email">{member.email}</td>
+              <td data-label="Status">
+                <span className={`status-badge ${member.status.toLowerCase()}`}>
                   {member.status}
                 </span>
               </td>
-              <td className="actions">
-                <button onClick={() => onEdit(member)} className="icon-btn">
-                  <FiEdit />
+              <td data-label="Ações" className="actions-cell">
+                <button className="icon-btn edit-btn" onClick={() => onEdit(member)}>
+                  <FiEdit2 />
                 </button>
-                <button onClick={() => onDelete(member.id)} className="icon-btn icon-btn-danger">
+                <button className="icon-btn delete-btn" onClick={() => onDelete(member.id)}>
                   <FiTrash2 />
                 </button>
               </td>

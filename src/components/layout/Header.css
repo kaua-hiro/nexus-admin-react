@@ -1,13 +1,33 @@
 .header {
-  height: 70px;
-  background-color: var(--secondary-bg);
-  padding: 0 2rem;
-  box-shadow: var(--shadow-md);
+  height: 80px;
+  background-color: var(--secondary-bg); /* O erro do rgba foi removido daqui! */
   border-bottom: 1px solid var(--border-color);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-toggle-btn {
+  display: none;
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .header-right {
@@ -16,37 +36,141 @@
   gap: 1.5rem;
 }
 
+/* --- ESTILO DO BOTÃO DE TEMA --- */
+.theme-toggle-modern {
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  width: 64px;
+  height: 34px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.theme-icon-wrapper {
+  background: var(--primary-accent);
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Posição quando é Light (Lua) */
+.theme-icon-wrapper.light {
+  transform: translateX(0);
+  background: var(--primary-accent);
+}
+
+/* Posição quando é Dark (Sol amarelo) */
+.theme-icon-wrapper.dark {
+  transform: translateX(30px);
+  background: #FBBF24;
+}
+
+/* --- OUTROS ÍCONES DO HEADER --- */
+.icon-btn {
+  position: relative;
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #EF4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-bg);
+}
+
+/* --- PERFIL DO USUÁRIO --- */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-accent), #8B5CF6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: var(--shadow-md);
+}
+
 .user-info {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-weight: 500;
-  color: var(--secondary-text);
-  font-size: 0.9rem;
-  border-left: 1px solid var(--border-color);
-  padding-left: 1.5rem;
+  flex-direction: column;
 }
 
-.user-info svg {
+.user-name {
   color: var(--primary-text);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.logout-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
+.user-role {
   color: var(--secondary-text);
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
+  font-size: 0.8rem;
 }
 
-.logout-button:hover {
-  background-color: var(--tertiary-bg);
-  color: var(--primary-text);
+/* --- RESPONSIVIDADE (Celular) --- */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+  }
+  .menu-toggle-btn {
+    display: block;
+  }
+  .user-info {
+    display: none; /* Esconde o texto no celular */
+  }
+  .user-profile {
+    padding-left: 0;
+    border-left: none;
+  }
 }

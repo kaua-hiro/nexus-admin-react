@@ -1,37 +1,57 @@
-/* Tema Claro (Padrão) */
+/* TEMA CLARO (Padrão) - Clean e Minimalista */
 :root {
-  --primary-bg: #f5f7fa;
-  --secondary-bg: #ffffff;
-  --tertiary-bg: #f5f7fa;
-  --border-color: #e0e0e0;
-  --primary-text: #1e3a5f;
-  --secondary-text: #6b7280;
-  --primary-accent: #1e3a5f;
-  --secondary-accent: #fbb900;
-  --text-on-accent: #ffffff;
-  --success-bg: #d4edda;
-  --success-text: #155724;
-  --danger-bg: #f8d7da;
-  --danger-text: #721c24;
-  --font-family: 'Montserrat', sans-serif;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --border-radius: 8px;
+  --primary-bg: #F8FAFC;
+  --secondary-bg: #FFFFFF;
+  --tertiary-bg: #F1F5F9;
+  --border-color: #E2E8F0;
+  
+  --primary-text: #0F172A;
+  --secondary-text: #64748B;
+  
+  --primary-accent: #2563EB; /* Azul vibrante */
+  --primary-accent-hover: #1D4ED8;
+  --secondary-accent: #F59E0B; /* Âmbar */
+  --text-on-accent: #FFFFFF;
+  
+  --success-bg: #DCFCE7;
+  --success-text: #15803D;
+  --danger-bg: #FEE2E2;
+  --danger-text: #B91C1C;
+  
+  --font-family: 'Inter', 'Montserrat', sans-serif;
+  
+  /* Sombras Modernas (Elevação) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 15px rgba(37, 99, 235, 0.3);
+  
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* TEMA DARK */
+/* TEMA ESCURO - Estilo "Deep Space" Premium */
 [data-theme='dark'] {
-  --primary-bg: #0F172A;
+  --primary-bg: #0B1120;
   --secondary-bg: #1E293B;
-  --tertiary-bg: #334155;
+  --tertiary-bg: #0F172A;
   --border-color: #334155;
-  --primary-text: #F1F5F9;
+  
+  --primary-text: #F8FAFC;
   --secondary-text: #94A3B8;
-  --primary-accent: #38BDF8;
-  --secondary-accent: #fbb900;
-  --text-on-accent: #0F172A;
-  --success-bg: rgba(46, 125, 50, 0.2);
-  --success-text: #66bb6a;
-  --danger-bg: rgba(198, 40, 40, 0.2);
-  --danger-text: #ef5350;
+  
+  --primary-accent: #38BDF8; /* Cyan Neon */
+  --primary-accent-hover: #0EA5E9;
+  --secondary-accent: #FBBF24;
+  --text-on-accent: #0B1120;
+  
+  --success-bg: rgba(21, 128, 61, 0.2);
+  --success-text: #4ADE80;
+  --danger-bg: rgba(185, 28, 28, 0.2);
+  --danger-text: #F87171;
+  
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 15px rgba(56, 189, 248, 0.2);
 }
