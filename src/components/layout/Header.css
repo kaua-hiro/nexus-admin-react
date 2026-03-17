@@ -1,6 +1,6 @@
 .header {
   height: 80px;
-  background-color: var(--secondary-bg); /* O erro do rgba foi removido daqui! */
+  background-color: var(--secondary-bg);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -13,11 +13,8 @@
   box-shadow: var(--shadow-sm);
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+.header-left { display: flex; align-items: center; gap: 1rem; }
+.header-right { display: flex; align-items: center; gap: 1.25rem; }
 
 .menu-toggle-btn {
   display: none;
@@ -27,16 +24,9 @@
   cursor: pointer;
   padding: 0.6rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* --- ESTILO DO BOTÃO DE TEMA --- */
+/* --- TEMA --- */
 .theme-toggle-modern {
   background: var(--tertiary-bg);
   border: 1px solid var(--border-color);
@@ -48,13 +38,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-
 .theme-icon-wrapper {
-  background: var(--primary-accent);
-  color: white;
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -62,115 +48,42 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 3px; left: 3px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.theme-icon-wrapper.light { transform: translateX(0); background: linear-gradient(135deg, var(--primary-accent), #2563EB); color: white; }
+.theme-icon-wrapper.dark { transform: translateX(30px); background: linear-gradient(135deg, #F59E0B, #FBBF24); color: #0F172A; }
 
-/* Posição quando é Light (Lua) */
-.theme-icon-wrapper.light {
-  transform: translateX(0);
-  background: var(--primary-accent);
-}
-
-/* Posição quando é Dark (Sol amarelo) */
-.theme-icon-wrapper.dark {
-  transform: translateX(30px);
-  background: #FBBF24;
-}
-
-/* --- OUTROS ÍCONES DO HEADER --- */
+/* --- OUTROS ÍCONES --- */
 .icon-btn {
-  position: relative;
-  background: var(--tertiary-bg);
-  border: 1px solid var(--border-color);
-  color: var(--secondary-text);
-  cursor: pointer;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+  position: relative; background: var(--tertiary-bg); border: 1px solid var(--border-color);
+  color: var(--secondary-text); cursor: pointer; width: 42px; height: 42px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
 }
+.icon-btn:hover { transform: translateY(-2px); color: var(--primary-accent); border-color: var(--primary-accent); }
+.notification-badge { position: absolute; top: -2px; right: -2px; background-color: #EF4444; color: white; font-size: 0.7rem; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.user-profile { display: flex; align-items: center; gap: 1rem; padding-left: 1.5rem; border-left: 1px solid var(--border-color); cursor: pointer; }
+.avatar { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-accent), #8B5CF6); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.user-info { display: flex; flex-direction: column; }
+.user-name { color: var(--primary-text); font-weight: 600; font-size: 0.95rem; }
+.user-role { color: var(--secondary-text); font-size: 0.8rem; }
 
-.icon-btn:hover {
-  color: var(--primary-accent);
-  border-color: var(--primary-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
-}
-
-.notification-badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  background-color: #EF4444;
-  color: white;
-  font-size: 0.7rem;
-  font-weight: bold;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid var(--secondary-bg);
-}
-
-/* --- PERFIL DO USUÁRIO --- */
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--border-color);
-  cursor: pointer;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-accent), #8B5CF6);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  box-shadow: var(--shadow-md);
-}
-
-.user-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-name {
-  color: var(--primary-text);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.user-role {
-  color: var(--secondary-text);
-  font-size: 0.8rem;
-}
-
-/* --- RESPONSIVIDADE (Celular) --- */
+/* =========================================
+   📱 RESPONSIVIDADE DO HEADER (MÁGICA AQUI)
+   ========================================= */
 @media (max-width: 768px) {
-  .header {
-    padding: 0 1rem;
-  }
-  .menu-toggle-btn {
-    display: block;
-  }
-  .user-info {
-    display: none; /* Esconde o texto no celular */
-  }
-  .user-profile {
-    padding-left: 0;
-    border-left: none;
-  }
+  .header { padding: 0 1rem; height: 70px; }
+  .menu-toggle-btn { display: block; }
+  .user-info { display: none; }
+  .user-profile { padding-left: 0; border-left: none; }
+  .header-right { gap: 0.75rem; }
+  
+  /* Encolhendo as pílulas para caber na tela */
+  .theme-toggle-modern { width: 54px; height: 30px; }
+  .theme-icon-wrapper { width: 22px; height: 22px; top: 3px; left: 3px; }
+  .theme-icon-wrapper.dark { transform: translateX(24px); }
+  
+  /* Encolhendo avatares e ícones */
+  .avatar { width: 36px; height: 36px; border-radius: 10px; }
+  .icon-btn { width: 36px; height: 36px; }
 }

@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kaua-hiro.github.io/nexus-admin-react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist -r https://github.com/kaua-hiro/nexus-admin-react.git"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

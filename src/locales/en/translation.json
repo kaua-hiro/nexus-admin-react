@@ -1,12 +1,32 @@
 {
   "sidebar": {
     "dashboard": "Dashboard",
-    "users": "Users",
+    "users": "Members",
     "projects": "Projects",
     "calendar": "Calendar",
     "settings": "Settings"
   },
   "header": {
     "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "filter_7d": "Last 7 days",
+    "filter_30d": "Last 30 days",
+    "filter_1y": "Last Year",
+    "new_users": "New Users",
+    "tasks_completed": "Completed Tasks",
+    "active_projects": "Active Projects",
+    "revenue": "Revenue (Period)",
+    "chart_title": "Member and Visitor Growth"
+  },
+  "members": {
+    "title": "User Management",
+    "search": "Search by name or email...",
+    "add_btn": "Add User",
+    "table_name": "Name",
+    "table_email": "Email",
+    "table_status": "Status",
+    "table_actions": "Actions"
   }
 }

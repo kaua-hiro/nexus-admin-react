@@ -1,12 +1,32 @@
 {
   "sidebar": {
     "dashboard": "Dashboard",
-    "users": "Utilizadores",
+    "users": "Membros",
     "projects": "Projetos",
     "calendar": "Calendário",
     "settings": "Configurações"
   },
   "header": {
     "logout": "Sair"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "filter_7d": "Últimos 7 dias",
+    "filter_30d": "Últimos 30 dias",
+    "filter_1y": "Último Ano",
+    "new_users": "Novos Usuários",
+    "tasks_completed": "Tarefas Concluídas",
+    "active_projects": "Projetos Ativos",
+    "revenue": "Receita (Período)",
+    "chart_title": "Crescimento de Membros e Visitantes"
+  },
+  "members": {
+    "title": "Gestão de Utilizadores",
+    "search": "Buscar por nome ou email...",
+    "add_btn": "Adicionar Utilizador",
+    "table_name": "Nome",
+    "table_email": "Email",
+    "table_status": "Status",
+    "table_actions": "Ações"
   }
 }

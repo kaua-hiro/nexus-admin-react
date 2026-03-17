@@ -145,3 +145,28 @@
 
 .icon-btn.delete-btn { color: #EF4444; }
 .icon-btn.delete-btn:hover { background-color: #EF4444; color: white; border-color: #EF4444; }
+
+/* =========================================
+   📱 RESPONSIVIDADE DA PÁGINA DE MEMBROS
+   ========================================= */
+@media (max-width: 768px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch; /* Estica os itens para ocupar 100% da tela */
+    gap: 1rem;
+  }
+  
+  .search-container {
+    max-width: 100%; /* Permite a barra de busca ocupar tudo */
+  }
+  
+  .header-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .members-table th,
+  .members-table td {
+    padding: 1rem; /* Diminui o respiro interno da tabela */
+  }
+}

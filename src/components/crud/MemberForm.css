@@ -203,3 +203,32 @@
   from { opacity: 0; transform: translateY(30px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* =========================================
+   📱 RESPONSIVIDADE DO MODAL
+   ========================================= */
+@media (max-width: 768px) {
+  .member-form-card {
+    width: 95%; 
+    max-height: 90vh; 
+    overflow-y: auto;
+  }
+  
+  .form-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  
+  .form-body {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .form-actions {
+    padding: 1.5rem;
+    flex-direction: column-reverse; 
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

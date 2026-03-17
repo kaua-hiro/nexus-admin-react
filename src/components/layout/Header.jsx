@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiBell, FiUser, FiSun, FiMoon } from 'react-icons/fi';
+import LanguageSwitcher from '../common/LanguageSwitcher'; /* Importação do Idioma */
 import './Header.css';
 
 const Header = ({ onMenuClick }) => {
@@ -25,11 +26,14 @@ const Header = ({ onMenuClick }) => {
       </div>
 
       <div className="header-right">
+        {/* Seletor de Idioma lado a lado com o Tema */}
+        <LanguageSwitcher />
+
         {/* Botão de Tema Moderno */}
         <button 
           className="theme-toggle-modern" 
           onClick={toggleTheme} 
-          title={theme === 'light' ? 'Mudar para Tema Escuro' : 'Mudar para Tema Claro'}
+          title="Alternar Tema"
         >
           <div className={`theme-icon-wrapper ${theme}`}>
             {theme === 'light' ? <FiMoon size={16} /> : <FiSun size={16} />}

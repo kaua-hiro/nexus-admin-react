@@ -9,14 +9,17 @@ import Membros from './pages/Membros';
 import Configuracoes from './pages/Configuracoes';
 import Projetos from './pages/Projetos';
 import Calendario from './pages/Calendario';
+import Relatorios from './pages/Relatorios';
 import './assets/styles/variables.css';
 import './assets/styles/App.css';
 import './assets/styles/print.css';
-import Relatorios from './pages/Relatorios';
 
 function App() {
+  // A MÁGICA ESTÁ AQUI: Detecta se é localhost ou GitHub Pages
+  const routerBasename = import.meta.env.DEV ? '/' : '/nexus-admin-react';
+
   return (
-    <Router>
+    <Router basename={routerBasename}>
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />

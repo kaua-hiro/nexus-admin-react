@@ -1,29 +1,32 @@
 import React from 'react';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next'; // IMPORTAMOS A TRADUÇÃO
 
 const MemberTable = ({ members, onEdit, onDelete }) => {
+  const { t } = useTranslation(); // INICIAMOS A TRADUÇÃO
+
   return (
     <div className="table-responsive">
       <table className="members-table">
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Ações</th>
+            <th>{t('members.table_name')}</th>
+            <th>{t('members.table_email')}</th>
+            <th>{t('members.table_status')}</th>
+            <th>{t('members.table_actions')}</th>
           </tr>
         </thead>
         <tbody>
           {members.map(member => (
             <tr key={member.id}>
-              <td data-label="Nome">{member.name}</td>
-              <td data-label="Email">{member.email}</td>
-              <td data-label="Status">
+              <td data-label={t('members.table_name')}>{member.name}</td>
+              <td data-label={t('members.table_email')}>{member.email}</td>
+              <td data-label={t('members.table_status')}>
                 <span className={`status-badge ${member.status.toLowerCase()}`}>
                   {member.status}
                 </span>
               </td>
-              <td data-label="Ações" className="actions-cell">
+              <td data-label={t('members.table_actions')} className="actions-cell">
                 <button className="icon-btn edit-btn" onClick={() => onEdit(member)}>
                   <FiEdit2 />
                 </button>

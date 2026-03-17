@@ -2,10 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiHome, FiUsers, FiSettings, FiLogOut, FiX } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
+import { useTranslation } from 'react-i18next'; // 1. Importamos a ferramenta de tradução
 import './Sidebar.css';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const { logout } = useAuth();
+  const { t } = useTranslation(); // 2. Iniciamos a função "t" (translate)
 
   return (
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
@@ -17,18 +19,19 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div>
       <nav className="sidebar-nav">
         <NavLink to="/" className="nav-item" end onClick={onClose}>
-          <FiHome /> Dashboard
+          {/* 3. Trocamos o texto fixo pela variável traduzida */}
+          <FiHome /> {t('sidebar.dashboard')}
         </NavLink>
         <NavLink to="/membros" className="nav-item" onClick={onClose}>
-          <FiUsers /> Membros
+          <FiUsers /> {t('sidebar.users')}
         </NavLink>
         <NavLink to="/configuracoes" className="nav-item" onClick={onClose}>
-          <FiSettings /> Configurações
+          <FiSettings /> {t('sidebar.settings')}
         </NavLink>
       </nav>
       <div className="sidebar-footer">
-        <button className="nav-item logout-btn" onClick={logout}>
-          <FiLogOut /> Sair
+        <button className="logout-btn" onClick={logout}>
+          <FiLogOut /> {t('header.logout')}
         </button>
       </div>
     </aside>

@@ -1,45 +1,52 @@
 import React from 'react';
+import { FiUser, FiUpload } from 'react-icons/fi';
 
 const ProfileForm = () => {
   return (
-    <div className="settings-card profile-form">
+    <div className="settings-card profile-section">
       <div className="card-header">
-        <h3>Informações do Perfil</h3>
+        <h3>Informações Pessoais</h3>
+        <p>Atualize sua foto e detalhes de contato.</p>
       </div>
+      
       <div className="card-body">
+        {/* Nova Área de Avatar */}
+        <div className="avatar-upload-section">
+          <div className="avatar-preview">
+            <FiUser />
+          </div>
+          <div className="avatar-actions">
+            <button className="btn btn-secondary"><FiUpload /> Alterar Foto</button>
+            <p>JPG, GIF ou PNG. Tamanho máximo de 2MB.</p>
+          </div>
+        </div>
+
         <div className="form-grid">
-          <div className="form-group">
-            <label htmlFor="country">País</label>
-            <input type="text" id="country" defaultValue="Brasil" />
+          <div className="form-group-modern">
+            <label>Nome Completo</label>
+            <input type="text" defaultValue="Admin Superuser" />
           </div>
-          <div className="form-group">
-            <label htmlFor="city">Cidade</label>
-            <input type="text" id="city" placeholder="ex: São Paulo" />
+          <div className="form-group-modern">
+            <label>Email Profissional</label>
+            <input type="email" defaultValue="admin@nexuscorp.com" />
           </div>
-          <div className="form-group full-width">
-            <label htmlFor="address">Endereço</label>
-            <input type="text" id="address" placeholder="ex: Av. Paulista, 1000" />
+          <div className="form-group-modern">
+            <label>Telefone</label>
+            <input type="text" placeholder="(11) 99999-9999" />
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" defaultValue="exemplo@nexus.org.br" />
+          <div className="form-group-modern">
+            <label>Cargo / Função</label>
+            <input type="text" defaultValue="Desenvolvedor Full Stack" />
           </div>
-          <div className="form-group">
-            <label htmlFor="phone">Telefone</label>
-            <input type="text" id="phone" placeholder="(11) 99999-9999" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="role">Função</label>
-            <input type="text" id="role" defaultValue="Admin" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="department">Departamento</label>
-            <input type="text" id="department" defaultValue="Administrativo" />
+          <div className="form-group-modern full">
+            <label>Endereço</label>
+            <input type="text" placeholder="Ex: Av. Paulista, 1000 - São Paulo, SP" />
           </div>
         </div>
-        <div className="card-footer">
-            <button className="btn btn-primary">Salvar tudo</button>
-        </div>
+      </div>
+      
+      <div className="card-footer">
+        <button className="btn btn-primary">Salvar Alterações</button>
       </div>
     </div>
   );

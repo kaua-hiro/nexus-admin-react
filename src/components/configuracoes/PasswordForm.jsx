@@ -2,26 +2,27 @@ import React from 'react';
 
 const PasswordForm = () => {
   return (
-    <div className="settings-card password-form">
+    <div className="settings-card password-section">
       <div className="card-header">
-        <h3>Alterar Senha</h3>
+        <h3>Segurança</h3>
+        <p>Mantenha sua senha atualizada.</p>
       </div>
       <div className="card-body">
-        <div className="form-group">
-          <label htmlFor="current-password">Senha Atual</label>
-          <input type="password" id="current-password" />
+        <div className="form-group-modern" style={{ marginBottom: '1.5rem' }}>
+          <label>Senha Atual</label>
+          <input type="password" placeholder="••••••••" />
         </div>
-        <div className="form-group">
-          <label htmlFor="new-password">Nova Senha</label>
-          <input type="password" id="new-password" />
+        <div className="form-group-modern" style={{ marginBottom: '1.5rem' }}>
+          <label>Nova Senha</label>
+          <input type="password" placeholder="••••••••" />
         </div>
-        <div className="form-group">
-          <label htmlFor="confirm-password">Confirmar Nova Senha</label>
-          <input type="password" id="confirm-password" />
+        <div className="form-group-modern">
+          <label>Confirmar Nova Senha</label>
+          <input type="password" placeholder="••••••••" />
         </div>
       </div>
       <div className="card-footer">
-        <button className="btn btn-primary">Salvar senha</button>
+        <button className="btn btn-secondary">Atualizar Senha</button>
       </div>
     </div>
   );

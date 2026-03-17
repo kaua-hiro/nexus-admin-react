@@ -1,111 +1,157 @@
-.page-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-text);
-  margin-bottom: 2rem;
-  letter-spacing: -0.5px;
+.config-header {
+  margin-bottom: 2.5rem;
 }
 
-.settings-grid {
+.config-header p {
+  color: var(--secondary-text);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.settings-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   align-items: start;
 }
 
+/* Tamanhos dos Cards no Grid */
+.profile-section { grid-column: span 2; }
+.password-section { grid-column: span 1; }
+.preferences-section { grid-column: span 2; }
+.social-section { grid-column: span 1; }
+
 .settings-card {
   background-color: var(--secondary-bg);
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .settings-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
-.social-accounts { grid-column: span 1; }
-.profile-form { grid-column: span 2; }
-.password-form { grid-column: span 1; }
+.settings-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+  opacity: 0.8;
+}
 
 .card-header {
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  background-color: rgba(var(--tertiary-bg), 0.5);
+  background: rgba(var(--tertiary-bg), 0.3);
 }
 
-.card-header h3 {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--primary-text);
-}
+.card-header h3 { margin: 0; font-size: 1.2rem; font-weight: 700; color: var(--primary-text); }
+.card-header p { margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--secondary-text); }
 
-.card-body { padding: 1.5rem; }
+.card-body { padding: 2rem; }
 
 .card-footer {
-  padding: 1.25rem 1.5rem;
-  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 2rem;
   background-color: var(--tertiary-bg);
-  text-align: right;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
 }
 
+/* --- UI DE AVATAR (NOVO) --- */
+.avatar-upload-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.avatar-preview {
+  width: 80px; height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--primary-accent), #8B5CF6);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.avatar-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+.avatar-actions p { margin: 0; font-size: 0.8rem; color: var(--secondary-text); }
+
+/* --- INPUTS ALINHADOS --- */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.form-group-modern { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group-modern.full { grid-column: 1 / -1; }
+.form-group-modern label { font-size: 0.85rem; font-weight: 600; color: var(--primary-text); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.form-group-modern input {
+  width: 100%; padding: 0.9rem 1.2rem; font-size: 0.95rem;
+  background-color: var(--tertiary-bg); border: 1px solid var(--border-color);
+  color: var(--primary-text); border-radius: 12px; transition: all 0.3s ease;
 }
 
-.form-group.full-width { grid-column: 1 / -1; }
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--primary-text);
+.form-group-modern input:focus {
+  outline: none; border-color: var(--primary-accent); background-color: var(--secondary-bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-accent) 20%, transparent);
 }
 
-.form-group input,
-.form-group select {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: var(--tertiary-bg);
-  color: var(--primary-text);
-  transition: all 0.3s ease;
+/* --- TOGGLES DE PREFERÊNCIAS (NOVO) --- */
+.preference-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--border-color);
 }
+.preference-item:last-child { border-bottom: none; padding-bottom: 0; }
+.pref-info h4 { margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--primary-text); }
+.pref-info p { margin: 0; font-size: 0.85rem; color: var(--secondary-text); }
 
-.form-group input:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--primary-accent);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  background-color: var(--secondary-bg);
+/* Toggle Deslizante Moderno */
+.toggle-switch {
+  position: relative; width: 50px; height: 26px;
+  background-color: var(--border-color); border-radius: 30px;
+  cursor: pointer; transition: background-color 0.3s ease;
 }
+.toggle-switch.active { background-color: var(--primary-accent); box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); }
+.toggle-knob {
+  position: absolute; top: 3px; left: 3px; width: 20px; height: 20px;
+  background-color: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle-switch.active .toggle-knob { transform: translateX(24px); }
 
-/* Estilização dos Contatos Sociais */
+/* --- CONTAS SOCIAIS --- */
 .social-account-item {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border-color);
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.25rem 0; border-bottom: 1px solid var(--border-color);
 }
 .social-account-item:last-child { border-bottom: none; padding-bottom: 0; }
-.social-account-item div { flex-grow: 1; }
-.social-account-item h4 { margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--primary-text); }
-.social-account-item a, .social-account-item span { font-size: 0.85rem; color: var(--secondary-text); }
+.social-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--tertiary-bg); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+
+/* Danger Zone */
+.danger-zone { margin-top: 3rem; padding: 2rem; border-radius: 20px; background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; justify-content: space-between; align-items: center; }
+.danger-zone h3 { color: #EF4444; margin: 0 0 0.5rem 0; }
+.danger-zone p { color: var(--secondary-text); margin: 0; font-size: 0.9rem; }
+.btn-danger { background-color: #EF4444; color: white; border: none; }
+.btn-danger:hover { background-color: #DC2626; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4); }
 
 @media (max-width: 1024px) {
-  .profile-form { grid-column: span 1; }
+  .settings-layout { grid-template-columns: 1fr; }
+  .profile-section, .password-section, .preferences-section, .social-section { grid-column: span 1; }
   .form-grid { grid-template-columns: 1fr; }
+  .danger-zone { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }

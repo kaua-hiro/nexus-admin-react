@@ -133,3 +133,29 @@
     justify-content: center;
   }
 }
+
+/* =========================================
+   📱 RESPONSIVIDADE DA SIDEBAR (Celular)
+   ========================================= */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 105; /* Garante que fique acima de tudo, inclusive do overlay escuro */
+    transform: translateX(-100%); /* Esconde a barra fora da tela por padrão */
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* Desliza a barra para dentro da tela quando o menu é clicado */
+  }
+
+  /* Garante que o botão X apareça no celular */
+  .close-sidebar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

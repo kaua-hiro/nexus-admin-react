@@ -91,3 +91,28 @@
   margin-bottom: 2rem;
   color: var(--primary-text);
 }
+
+/* =========================================
+   📱 RESPONSIVIDADE DO DASHBOARD
+   ========================================= */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .period-filter {
+    width: 100%;
+    overflow-x: auto; /* Permite rolar os botões de filtro se não couberem */
+    white-space: nowrap;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr; /* Coloca um card embaixo do outro (1 coluna) */
+  }
+  
+  .chart-container {
+    padding: 1rem; /* Diminui a borda do gráfico para ele não sumir */
+    overflow-x: auto;
+  }
+}

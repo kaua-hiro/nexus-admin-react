@@ -23,7 +23,14 @@
   display: none;
 }
 
+/* =========================================
+   📱 RESPONSIVIDADE DO LAYOUT
+   ========================================= */
 @media (max-width: 768px) {
+  .page-content {
+    padding: 1rem; /* Dá mais espaço para o conteúdo no celular */
+  }
+  
   .sidebar-overlay {
     display: block;
     position: fixed;
@@ -31,11 +38,9 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
-  }
-  
-  .page-content {
-    padding: 1rem;
+    background-color: rgba(11, 17, 32, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 90; /* Fica logo abaixo da Sidebar (que tem z-index 100) */
+    animation: fadeInOverlay 0.3s ease;
   }
 }
