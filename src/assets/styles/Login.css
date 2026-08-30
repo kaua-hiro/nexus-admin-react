@@ -9,7 +9,7 @@
 }
 
 .login-box {
-  background: rgba(var(--secondary-bg), 0.6);
+  background: color-mix(in srgb, var(--secondary-bg) 85%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 3rem;
@@ -97,7 +97,32 @@
   margin-top: 1rem;
 }
 
-.login-button:hover {
+.login-button:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.login-hint {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--secondary-text);
 }

@@ -37,6 +37,20 @@
   overflow-y: auto;
 }
 
+.nav-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary-text);
+  opacity: 0.7;
+  padding: 1.2rem 1.2rem 0.4rem;
+}
+
+.nav-section-label:first-child {
+  padding-top: 0.2rem;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -82,6 +96,22 @@
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.plan-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border-radius: var(--border-radius-sm);
+  background: color-mix(in srgb, var(--secondary-accent) 12%, transparent);
+  color: var(--secondary-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .logout-btn {

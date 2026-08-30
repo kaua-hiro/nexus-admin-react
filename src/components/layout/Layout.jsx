@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import './Layout.css';
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout-container">
+      <Toaster position="bottom-right" />
       <Sidebar isOpen={isMobileSidebarOpen} onClose={closeSidebar} />
       <div className="main-content">
         <Header onMenuClick={toggleSidebar} />

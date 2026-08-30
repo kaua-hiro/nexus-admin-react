@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { FiPlusCircle, FiSearch } from 'react-icons/fi';
-import toast, { Toaster } from 'react-hot-toast';
+import { FiPlusCircle, FiSearch, FiDownload } from 'react-icons/fi';
+import toast from 'react-hot-toast';
 
 // Componentes
 import MemberTable from '../components/crud/MemberTable';
@@ -147,12 +147,31 @@ const Membros = () => {
     setIsFormVisible(true);
   };
 
+  const handleExportCsv = () => {
+    if (processedMembers.length === 0) {
+      toast.error('Não há dados para exportar.');
+      return;
+    }
+    const header = ['Nome', 'Email', 'Status'];
+    const rows = processedMembers.map(m => [m.name, m.email, m.status]);
+    const csvContent = [header, ...rows]
+      .map(row => row.map(field => `"${String(field ?? '').replace(/"/g, '""')}"`).join(','))
+      .join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `membros-nexus-${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+    toast.success('Exportação concluída.');
+  };
+
   if (isLoading) { return <LoadingSpinner />; }
   if (error) { return <ErrorMessage message={error} />; }
 
   return (
     <div className="membros-page">
-      <Toaster position="bottom-right" />
       <div className="page-header">
         <h1>Gestão de Utilizadores</h1>
         <div className="header-actions">
@@ -166,6 +185,9 @@ const Membros = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
+          <button className="btn btn-secondary" onClick={handleExportCsv}>
+            <FiDownload /> Exportar CSV
+          </button>
           <button className="btn btn-primary" onClick={showForm}>
             <FiPlusCircle /> Adicionar Utilizador
           </button>

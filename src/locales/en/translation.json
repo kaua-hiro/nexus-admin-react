@@ -1,10 +1,15 @@
 {
   "sidebar": {
+    "section_workspace": "Workspace",
+    "section_account": "Account",
     "dashboard": "Dashboard",
     "users": "Members",
     "projects": "Projects",
     "calendar": "Calendar",
-    "settings": "Settings"
+    "reports": "Reports",
+    "activity": "Activity",
+    "settings": "Settings",
+    "plan_label": "Business Plan"
   },
   "header": {
     "logout": "Logout"

@@ -30,3 +30,76 @@ body {
   padding: 2rem;
   flex-grow: 1;
 }
+
+/* --- Título de página: compartilhado por todas as telas --- */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  letter-spacing: -0.5px;
+  margin: 0 0 1.5rem 0;
+}
+
+.page-subtitle {
+  color: var(--secondary-text);
+  margin: -1rem 0 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* --- Botões: usados em toda a aplicação --- */
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-accent), #2563EB);
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--tertiary-bg);
+  border-color: var(--secondary-text);
+}
+
+.btn-danger {
+  background-color: #EF4444;
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #DC2626;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}

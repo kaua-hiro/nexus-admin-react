@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiAlertCircle } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/Login.css';
@@ -6,19 +7,26 @@ import '../assets/styles/Login.css';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && password) {
-      const loginSuccess = await login({ username, password });
+    if (!username || !password) return;
 
+    setError('');
+    setIsSubmitting(true);
+    try {
+      const loginSuccess = await login({ username, password });
       if (loginSuccess) {
         navigate('/');
       } else {
-        alert("Falha no login, verifique o console.");
+        setError('Não foi possível entrar. Confira usuário e senha.');
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -27,6 +35,13 @@ const Login = () => {
       <div className="login-box">
         <h1 className="login-logo">Nexus Dashboard</h1>
         <h2>Acesse o Painel</h2>
+
+        {error && (
+          <div className="login-error">
+            <FiAlertCircle /> {error}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Usuário</label>
@@ -36,6 +51,7 @@ const Login = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Digite seu usuário"
+              autoComplete="username"
               required
             />
           </div>
@@ -47,11 +63,16 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Digite sua senha"
+              autoComplete="current-password"
               required
             />
           </div>
-          <button type="submit" className="login-button">Entrar</button>
+          <button type="submit" className="login-button" disabled={isSubmitting}>
+            {isSubmitting ? 'Entrando...' : 'Entrar'}
+          </button>
         </form>
+
+        <p className="login-hint">Ambiente de demonstração — qualquer usuário e senha funcionam.</p>
       </div>
     </div>
   );

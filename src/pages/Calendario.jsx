@@ -10,6 +10,7 @@ const Calendario = () => {
   return (
     <div>
       <h1 className="page-title">Calendário de Eventos</h1>
+      <p className="page-subtitle">Arraste para reagendar, clique num dia para criar um novo evento.</p>
       <div className="calendar-container">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

@@ -110,6 +110,7 @@ const Projetos = () => {
   return (
     <div>
       <h1 className="page-title">Quadro de Projetos</h1>
+      <p className="page-subtitle">Arraste os cartões entre colunas para atualizar o andamento de cada tarefa.</p>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCorners}

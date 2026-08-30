@@ -8,11 +8,47 @@
   font-size: 0.95rem;
 }
 
+/* --- ABAS --- */
+.config-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.config-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.25rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--secondary-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.config-tab:hover { color: var(--primary-text); }
+
+.config-tab.active {
+  color: var(--primary-accent);
+  border-bottom-color: var(--primary-accent);
+}
+
 .settings-layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   align-items: start;
+}
+
+.settings-layout--single {
+  grid-template-columns: 1fr;
 }
 
 /* Tamanhos dos Cards no Grid */
@@ -48,7 +84,7 @@
 .card-header {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  background: rgba(var(--tertiary-bg), 0.3);
+  background: color-mix(in srgb, var(--tertiary-bg) 60%, transparent);
 }
 
 .card-header h3 { margin: 0; font-size: 1.2rem; font-weight: 700; color: var(--primary-text); }
@@ -142,12 +178,234 @@
   background: var(--tertiary-bg); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
 }
 
+/* --- EQUIPE & PERMISSÕES --- */
+.invite-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.invite-row input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.95rem;
+  background-color: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.invite-row input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  background-color: var(--secondary-bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-accent) 20%, transparent);
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.team-row:last-child { border-bottom: none; }
+
+.team-row-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatar-sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary-accent), #8B5CF6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.team-name { margin: 0; font-weight: 600; color: var(--primary-text); font-size: 0.95rem; }
+.team-email { margin: 0.15rem 0 0; font-size: 0.82rem; color: var(--secondary-text); }
+
+.team-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.role-select {
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--tertiary-bg);
+  color: var(--primary-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.role-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  font-size: 0.82rem;
+}
+
+/* --- PLANO & FATURAMENTO --- */
+.current-plan-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--primary-accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary-accent) 25%, transparent);
+  margin-bottom: 2rem;
+}
+
+.current-plan-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-accent);
+}
+
+.current-plan-info h4 { margin: 0.35rem 0 0.25rem; font-size: 1.4rem; color: var(--primary-text); }
+.current-plan-info p { margin: 0; font-size: 0.85rem; color: var(--secondary-text); }
+
+.usage-meters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.usage-meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 0.5rem;
+}
+
+.usage-bar {
+  height: 8px;
+  border-radius: 10px;
+  background-color: var(--tertiary-bg);
+  overflow: hidden;
+}
+
+.usage-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-accent), #8B5CF6);
+  border-radius: 10px;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.plan-card {
+  position: relative;
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--tertiary-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-card.current {
+  border-color: var(--primary-accent);
+  background: color-mix(in srgb, var(--primary-accent) 6%, var(--tertiary-bg));
+}
+
+.plan-current-badge {
+  position: absolute;
+  top: -12px;
+  right: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-accent), #8B5CF6);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+}
+
+.plan-card h4 { margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--primary-text); }
+
+.plan-price {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-text);
+}
+
+.plan-price span { font-size: 0.9rem; font-weight: 500; color: var(--secondary-text); }
+
+.plan-description { margin: 0 0 1.25rem; font-size: 0.85rem; color: var(--secondary-text); }
+
+.plan-features {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary-text);
+}
+
+.plan-features li svg { color: var(--success-text); flex-shrink: 0; }
+
+.plan-card .btn { width: 100%; justify-content: center; }
+
+@media (max-width: 1024px) {
+  .plans-grid { grid-template-columns: 1fr; }
+  .current-plan-summary { flex-direction: column; align-items: flex-start; }
+}
+
 /* Danger Zone */
 .danger-zone { margin-top: 3rem; padding: 2rem; border-radius: 20px; background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; justify-content: space-between; align-items: center; }
 .danger-zone h3 { color: #EF4444; margin: 0 0 0.5rem 0; }
 .danger-zone p { color: var(--secondary-text); margin: 0; font-size: 0.9rem; }
-.btn-danger { background-color: #EF4444; color: white; border: none; }
-.btn-danger:hover { background-color: #DC2626; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4); }
 
 @media (max-width: 1024px) {
   .settings-layout { grid-template-columns: 1fr; }

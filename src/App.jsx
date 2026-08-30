@@ -10,6 +10,7 @@ import Configuracoes from './pages/Configuracoes';
 import Projetos from './pages/Projetos';
 import Calendario from './pages/Calendario';
 import Relatorios from './pages/Relatorios';
+import Atividades from './pages/Atividades';
 import './assets/styles/variables.css';
 import './assets/styles/App.css';
 import './assets/styles/print.css';
@@ -36,6 +37,7 @@ function App() {
             <Route path="projetos" element={<Projetos />} />
             <Route path="calendario" element={<Calendario />} />
             <Route path="relatorios" element={<Relatorios />} />
+            <Route path="atividades" element={<Atividades />} />
             <Route path="configuracoes" element={<Configuracoes />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />

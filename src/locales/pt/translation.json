@@ -1,10 +1,15 @@
 {
   "sidebar": {
+    "section_workspace": "Workspace",
+    "section_account": "Conta",
     "dashboard": "Dashboard",
     "users": "Membros",
     "projects": "Projetos",
     "calendar": "Calendário",
-    "settings": "Configurações"
+    "reports": "Relatórios",
+    "activity": "Atividades",
+    "settings": "Configurações",
+    "plan_label": "Plano Business"
   },
   "header": {
     "logout": "Sair"
